@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Småmetoder med in- och utdata", "SmallMethodsWithInputAndOutput\SmallMethodsWithInputAndOutput.csproj", "{FA2F90F4-2515-444A-8AF2-089072A8C622}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA2F90F4-2515-444A-8AF2-089072A8C622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA2F90F4-2515-444A-8AF2-089072A8C622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA2F90F4-2515-444A-8AF2-089072A8C622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA2F90F4-2515-444A-8AF2-089072A8C622}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CE21C55-EAB3-4E14-B4F7-6BD8FA1D67E4}
+	EndGlobalSection
+EndGlobal
