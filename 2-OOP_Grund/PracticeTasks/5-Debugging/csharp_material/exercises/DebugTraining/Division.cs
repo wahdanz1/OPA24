@@ -12,17 +12,17 @@ namespace DebugExample
                 Console.Write("Enter the numerator: ");
                 if(!int.TryParse(Console.ReadLine(), out int numerator))
                 {
-                    Console.WriteLine("numbers only!");
+                    Console.WriteLine("Only numbers allowed!");
                     continue;
                 }
                 Console.Write("Enter the denominator: ");
-                if(!int.TryParse(Console.ReadLine(), out int denominator))
+                if(!int.TryParse(Console.ReadLine(), out int denominator) || denominator == 0)
                 {
-                    Console.WriteLine("numbers only!");
+                    Console.WriteLine("Only numbers allowed (except for '0'!");
                     continue;
                 }
 
-                int quotient = numerator / denominator;
+                float quotient = numerator / (float)denominator;
 
                 Console.WriteLine($"The quotient of {numerator} and {denominator} is: {quotient}");
                 break; // if we reach this code, the user has not entered anything wrong and we can end this method.

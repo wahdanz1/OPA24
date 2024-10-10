@@ -36,7 +36,7 @@
             people.Sort((a, b) => a.personalNr.CompareTo(b.personalNr));
 
             
-            int personalNrToFind = 50375;
+            int personalNrToFind = 50315;
             int index = DoBinarySearch(people, personalNrToFind);
 
             if(index != -1)
@@ -53,23 +53,33 @@
         private static int DoBinarySearch(List<Person> persons, int personalNr)
         {
             // bra ställe att sätta break point?
+            // Första varvet: firstIndex = 0, lastIndex = 3, indexToCheck = (0+3)/2 = 1.5 avrundat ner till 1
+            // Andra varvet: firstIndex = 1, lastIndex = 3, indexToCheck = (1+3)/2 = 2
+            // Tredje varvet: firstIndex = 2, lastIndex = 3, indexToCheck = (2+3)/2 = 2.5 avrundat ner till 2
+            
+            // Om jag lägger till en inkrementering på "indexToCheck" innan jag tilldelar det till firstIndex:
+            // Första varvet: firstIndex = 0, lastIndex = 3, indexToCheck = (0+3)/2 = 1.5 avrundat ner till 1
+            // Andra varvet: firstIndex = 2, lastIndex = 3, indexToCheck = (2+3)/2 = 2.5 avrundat ner till 2
+            // Tredje varvet: firstIndex = 2, lastIndex = 3, indexToCheck = (2+4)/2 = 3
+
             int firstIndex = 0;
             int lastIndex = persons.Count - 1;
 
             while (firstIndex <= lastIndex)
             {
-                int indexToCheck = (firstIndex + lastIndex) / 2;
-                if (persons[indexToCheck].personalNr == personalNr)
+                int indexToCheck = (firstIndex + lastIndex) / 2; // Deklarar var sökningen ska börja (mitten), och uppdaterar varje varv för att söka ett steg upp/ner
+                if (persons[indexToCheck].personalNr == personalNr) // Om personnumret som söks efter är det som är på aktuellt index...
                 {
-                    return indexToCheck;
+                    return indexToCheck; // ...skicka tillbaka värdet
                 }
-                else if (persons[indexToCheck].personalNr < personalNr)
+                else if (persons[indexToCheck].personalNr < personalNr) // Om "aktuellt" personnummer befinner sig i det högre intervallet...
                 {
-                    firstIndex = indexToCheck;
+                    indexToCheck++;
+                    firstIndex = indexToCheck; // ...flytta ner firstIndex till aktuell plats
                 }
-                else
+                else // Om "aktuellt" personnummer befinner sig i det lägre intervallet...
                 {
-                    lastIndex = indexToCheck;
+                    lastIndex = indexToCheck; // ...flytta upp lastIndex till aktuell plats
                 }
             }
 
